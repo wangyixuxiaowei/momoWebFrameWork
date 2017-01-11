@@ -1,0 +1,49 @@
+body{
+	font-family:"Microsoft Yahei";
+}
+
+.btn-mo {
+	padding: 1px;
+}
+
+.panel-mo {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}
+
+.op .btn {
+	display: inline;
+	padding: 0px;
+}
+
+.non_show_td {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.pagination-mo {
+	margin: 0;
+}
+
+.panel-body{
+	padding:20px;
+}
+
+.tr-mo{
+	color:#000;
+	background-color:#fcf8e3;
+	border-color:#337ab7;
+}
+
+thead.tr-mo tr th{
+	border-bottom-width: 1px;
+}
+
+.field-has-error{
+	color: #b94a48;
+}

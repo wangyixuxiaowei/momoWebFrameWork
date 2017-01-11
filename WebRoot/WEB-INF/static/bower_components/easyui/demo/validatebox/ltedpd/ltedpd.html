@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<title>用户详单查询</title>
+	<link rel="stylesheet" type="text/css" href="../util/css/easyui.css"></link>
+	<link rel="stylesheet" type="text/css" href="../util/css/icon.css"></link>
+	<link rel="stylesheet" type="text/css" href="../util/css/demo.css"></link>
+	<link rel="stylesheet" type="text/css" href="../util/css/xu.css"></link>
+	<script type="text/javascript" src="../util/js/jquery-1.js"></script>
+	<script type="text/javascript" src="../util/js/jquery.js"></script>
+	<script type="text/javascript" src="../util/js/easyui-lang-zh_CN.js"></script>
+</head>
+<body class="easyui-layout">
+	<form id="ff" method="post">
+	<div region="center" border="false" class="divtable-x">
+		<table id="test"></table>
+	</div>
+	<div id="tb" class="date-x">
+            开始时间:<input id="sd" class="easyui-datetimebox" style="width:140px"></input>
+            结束时间:<input id="ed" class="easyui-datetimebox" style="width:140px"></input>
+			号码类型:<input id="sele" class="easyui-combobox" panelHeight="auto" style="width:60px"></input>
+			<div class="lagop" id="op1" style="display:inline;">IMSI号:<input class="easyui-validatebox" size="16" type="text" id="opv1" data-options="required:true,validType:'imsi'"></input></div>
+			<div class="lagop" id="op2" style="display:none;">MDN号:<input class="easyui-validatebox" size="16" type="text" id="opv2" data-options="required:true"></input></div>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-save" style="display:none;">导出</a>
+            <div style="display:block;">
+			高亮指标:<input id="ligh" class="easyui-combobox" panelHeight="auto" style="width:110px"></input>
+			 >= 阀值:<input class="easyui-validatebox" size="16" type="text" id="lighv" data-options="validType:'lighval'"></input>
+		   </div>
+    </div>
+	</form>
+	<!--下载弹出层模块-->
+    <div id="DownloadContainer" class="download-container">
+	  <div class="box-top">
+	    <div class="box-close"> &nbsp; </div>
+	  </div>
+	  <div class="box-content">
+	    <h4></h4>
+	    <div>
+	    	导出文件格式：
+	      <label for="DownPdfFile" title="本格式图文并茂，阅读时需pdf相应软件。" style="display:none;">
+	        <input name="download_type" id="DownPdfFile" value="pdf" type="radio">
+	        PDF&nbsp; </input></label>
+	      <label for="DownCvsFile" title="本格式不含图示，支持较大量数据，便于后期数据处理。">
+	        <input name="download_type" id="DownCvsFile" value="csv"  checked="checked" type="radio">
+	        CSV&nbsp; </input></label>
+	    </div>
+	    <div>
+	      <label for="curPage">
+	      	导出分页方式：
+	        <input name="ptype" id="current" value="curPage" checked="checked" type="radio">
+	       	 当前页&nbsp; </input></label>
+	      <label for="all">
+	        <input name="ptype" id="all" value="all" type="radio">
+	                     全部&nbsp; </input></label>
+	    </div>
+	    <div id="DownloadingBar">
+	      <input name="" value="导出" type="submit"/>
+	      &nbsp;&nbsp;&nbsp;
+	      <input name="" value="取消" type="button"/>
+	    </div>
+	  </div>
+	  <div class="box-bottom"> </div>
+	</div>
+	<!--下载弹出层模块-->
+	<script src="../../js/json2.js"></script>
+	<script src="../util/js/b.js"></script>
+    <script src="../util/js/download.js"></script>	
+	<script src="../util/js/x.js"></script>
+</body></html>

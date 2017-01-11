@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="momo2"
+		transaction-type="RESOURCE_LOCAL">
+		<class>cn.capitek.entity.admin.RadAcct</class>
+		<class>cn.capitek.entity.admin.RadCheck</class>
+		<class>cn.capitek.entity.admin.RadPostAuth</class>
+		<class>cn.capitek.entity.admin.RadReply</class>
+		<class>cn.capitek.entity.admin.RadGroupCheck</class>
+		<class>cn.capitek.entity.admin.RadGroupReply</class>
+		<class>cn.capitek.entity.admin.Nas</class>
+		<class>cn.capitek.entity.admin.RadUserGroup</class>
+		<class>cn.capitek.entity.admin.RadUser</class>
+	</persistence-unit>
+</persistence>

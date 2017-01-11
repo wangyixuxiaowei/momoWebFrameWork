@@ -1,0 +1,66 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context   
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    	   http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+    
+    <context:component-scan base-package="cn.capitek.web.controller" />
+    <!-- mvc:annotation-driven />
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" /-->
+    
+    <!-- 表单验证开始 -->
+    <mvc:annotation-driven validator="validator" conversion-service="conversion-service" />
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass"  value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="validatemessageSource"/>
+    </bean>
+    <bean id="conversion-service" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
+    <bean id="validatemessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">  
+        <property name="basename" value="classpath:validatemessages"/>  
+        <property name="fileEncodings" value="utf-8"/>  
+        <property name="cacheSeconds" value="120"/>  
+    </bean>
+    <!-- 表单验证结束 -->
+    
+    <!-- 权限过滤器开始 -->
+    <mvc:interceptors>
+        <bean class="cn.capitek.web.auth.AuthInterceptor"></bean>
+    </mvc:interceptors>
+    <!-- 权限过滤器结束 -->
+     
+    <mvc:view-controller path="/" view-name="redirect:/home/index"/> 
+   
+    <mvc:resources mapping="/js/**" location="/WEB-INF/static/js/" />
+    <mvc:resources mapping="/css/**" location="/WEB-INF/static/css/" />
+    <mvc:resources mapping="/fonts/**" location="/WEB-INF/static/fonts/" />
+    <mvc:resources mapping="/plugins/**" location="/WEB-INF/static/plugins/" />
+    <mvc:resources mapping="/images/**" location="/WEB-INF/static/images/" />
+    <mvc:resources mapping="/bower_components/**" location="/WEB-INF/static/bower_components/" />
+    <mvc:default-servlet-handler/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+       <property name="contentType" value="text/html"/>        
+       <property name="prefix" value="/WEB-INF/views/"/>
+       <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="maxUploadSize">  
+	    	<value>1048576</value>  
+	    </property>
+	    <property name="defaultEncoding"> 
+			<value>UTF-8</value> 
+		</property>
+    </bean>
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basename="i18n/messages" />
+</beans>  

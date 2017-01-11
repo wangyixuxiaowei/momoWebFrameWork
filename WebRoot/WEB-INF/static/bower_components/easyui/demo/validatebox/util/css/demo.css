@@ -1,0 +1,89 @@
+*{
+	font-size:12px;
+}
+body {
+    font-family:verdana,helvetica,arial,sans-serif;
+    padding:0;
+    font-size:12px;
+    margin:0;
+}
+h2 {
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:15px;
+}
+.demo-info{
+	padding:0 0 12px 0;
+}
+.demo-tip{
+	display:none;
+}
+
+.box-top {
+	height: 29px;
+	overflow: hidden;
+	background: url(../css/images/report_sprite.gif) no-repeat 0 -407px;
+}
+
+.box-close {
+	float: right;
+	width: 53px;
+	height: 29px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.box-content {
+	border: 10px solid #747474;
+	background: #fff;
+	border-bottom: 0;
+	padding: 20px;
+}
+
+.box-bottom {
+	height: 10px;
+	overflow: hidden;
+	line-height: 10px;
+	background: url(../css/images/report_sprite.gif) no-repeat 0 -438px;
+	_background: url(../css/images/report_sprite.gif) no-repeat 10px -438px;
+}
+
+.box-content h4 {
+	margin-bottom: 15px;
+}
+
+.date {
+	ime-mode: disable;
+}
+
+div.download-container {
+	display: none;
+	width: 413px;
+	position: absolute;
+	z-index: 1003;
+	left: 50%;
+	top: 50%;
+	margin: -115px 0 0 -207px;
+}
+
+div.download-container div.box-top {
+	background: url(../css/images/report_sprite.gif) no-repeat 0 -449px;
+}
+
+div.download-container div.box-bottom {
+	background: url(../css/images/report_sprite.gif) no-repeat 0 -478px;
+	_background: url(../css/images/report_sprite.gif) no-repeat 20px -478px;
+}
+
+div.download-container[class] {
+	position: fixed;
+}
+
+div.download-container .box-content div {
+	margin-bottom: 10px;
+}
+
+div.e-tip {
+	color: #999;
+}

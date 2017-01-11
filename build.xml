@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--定义一个工程 默认任务为warFile-->
+<project name="myantprj" default="warFile" basedir=".">
+	<!--定义打成war包的名字的属性-->
+	<property name="warFileName" value="Momo2.war"></property>
+	<!--定义路径，编译java时用到的jar包-->
+	<path id="project.javac.lib">
+		<fileset dir="${basedir}/WebRoot/WEB-INF/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	<!--定义任务，清空任务:清空原有的class文件，创建新的build路径-->
+	<target name="clean">
+		<echo message="开始清理build路径------>"/>
+		<delete dir="${basedir}/build"/>
+		<mkdir dir="${basedir}/build"/>
+		<echo message="清理build路径完成------>"/>
+	</target>
+	<!--定义任务，编译src文件夹中的java文件，编译后的class文件放到创建的文件夹下-->
+	<target name="compile" depends="clean">
+		<echo message="开始编译java文件------>"/>
+		<javac srcdir="${basedir}/src" destdir="${basedir}/build" includeantruntime="false" encoding="UTF-8">
+			<classpath refid="project.javac.lib"></classpath>
+		</javac>
+		<echo message="编译java文件完成------>"/>
+	</target>
+	<!--定义默认任务，整合war包-->
+	<target name="warFile" depends="compile">
+		<echo message="ant工程开始------>"/>
+		<echo message="开始打war包------>"/>
+		<!--删除原有war包-->
+		<echo message="删除原有war包开始------>"/>
+		<delete dir="${basedir}/${warFileName}"/>
+		<echo message="完成删除原有war包------>"/>
+		<!--建立新war包-->
+		<echo message="建立新war包开始------>"/>
+		<war destfile="${basedir}/${warFileName}" webxml="${basedir}/WebRoot/WEB-INF/web.xml">
+			 <!-- 将非jar和非class文件拷贝到war包的对应路径下-->
+			 <fileset dir="${basedir}/WebRoot">
+			 	<include name="**/*.*"/>
+			 	<exclude name="**/*.jar"/>
+			 	<!--exclude name="**/*.class"/-->
+			 </fileset>
+			 <!-- 将jar和class文件拷贝到war包的对应路径下-->
+			 <lib dir="${basedir}/WebRoot/WEB-INF/lib"></lib>
+			 <!--classes dir="${basedir}/build"></classes>
+			 <classes dir="${basedir}/resources"></classes-->
+		</war>
+		<echo message="完成建立新war包------>"/>
+		<echo message="打war包完成------>"/>
+		<echo message="ant工程完成------>"/>
+	</target>
+</project>

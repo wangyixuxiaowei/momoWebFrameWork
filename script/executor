@@ -1,0 +1,42 @@
+########### 执行shell脚本 ########### 
+time /bin/bash rpa_id_hash.sh  ##①100w， 22.010s
+time /bin/bash rpa_id_zset.sh ##②100w，7.678s
+
+##执行完毕之后，redis中生成的表
+1. 类型：hash；key = rpa:entity:[id]  ##有多少id，就有多少个hash
+2. 类型：zset；key = rpa:id ##单独的一个zset，里边存放所有的id及为0的分值
+
+
+########### 执行lua脚本 ###########
+time redis-cli EVAL "$(cat redis_rpa_query.lua)" 0  ##③ 8.441s
+
+##执行完毕之后，redis中生成的表
+1. 类型：zset；key = rpa:date  ##单独的一个zset，里边存放所有的id及对应的认证日期的分值
+2. 类型：zset；key = rpa:user:[username] ##有多少username，就有多少个zset。每个用户对应的zset中存放不同时间登录的id及登录日期为值的分值
+
+
+###########  redis-cli相关操作 ########### 
+##所有的key的个数
+dbsize
+
+##查看所有以rpa:user:开头的key
+keys rpa:user:*
+
+##rpa的记录数
+zcard rpa:date
+
+
+########### 性能描述  ########### 
+4G内存的虚拟机。
+100万条记录
+
+执行shell脚本
+time /bin/bash rpa_id_hash.sh  ##①100w， 22.010s
+time /bin/bash rpa_id_zset.sh ##②100w，7.678s
+
+执行lua脚本
+time redis-cli EVAL "$(cat redis_rpa_query.lua)" 0  ##③ 8.441s
+
+
+
+

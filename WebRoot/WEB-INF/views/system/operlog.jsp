@@ -1,0 +1,109 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML>
+<%@ include file="../common/taglib.jsp"%>
+<html>
+	<head>
+		<title>操作日志管理</title>
+		<%@ include file="../common/importHeader.jsp"%>
+	</head>
+	<body>
+		<%@ include file="../common/top.jsp"%>
+		<div class="ch-container">
+			<div class="row">
+				<%@ include file="../common/leftMenu.jsp"%>
+				<div id="content" class="col-lg-10 col-sm-10">
+					<!-- content starts -->
+					<div>
+						<ul class="breadcrumb">
+						<li><a href="#">系统管理</a></li>
+						<li><a href="#">操作日志管理</a></li>
+						</ul>
+					</div>
+					<div class="panel panel-default panel-mo">
+					<div class="panel-body">
+					<form class="form-horizontal"> 
+						<div class="form-body">
+							<div class="row">
+								<div class="col-md-2">
+									<div class="form-group">
+										<!--  <label class="control-label col-md-3">操作人</label>-->
+										<div class="col-md-12">
+											<input id="operator" class="form-control placeholder-no-fix" autocomplete="off" placeholder="操作人"/>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										 <!--  <label class="control-label col-md-3">操作类型</label>-->
+										 <div class="col-md-12">
+										 	<input id="operationType" class="form-control placeholder-no-fix" autocomplete="off" placeholder="操作类型"/>
+										 </div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<!--   <label class="control-label col-md-3">操作模块</label>-->
+										 <div class="col-md-12">
+										 	<input id="module" class="form-control placeholder-no-fix" autocomplete="off" placeholder="操作模块"/>
+										 </div>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<!--   <label class="control-label col-md-3">操作结果</label>-->
+										 <div class="col-md-12">
+										 	<input id="operationResult" class="form-control placeholder-no-fix" autocomplete="off" placeholder="操作结果"/>
+										 </div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<div class="col-md-6">
+											<a type="button" class="btn btn-primary pull-right btn-click"><i class="fa fa-search fa-fw"></i> 查 询 </a>                      
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					</div>
+				</div>
+				<div class="panel panel-primary panel-mo">
+					<div class="panel-heading">
+						操作日志列表
+					</div>
+					<div class="panel-body">
+						<table class="table table-mo table-bordered table-hover">
+							<thead class="tr-mo">
+								<tr>
+									<th>编号</th>
+									<th>操作人</th>
+									<th>操作类型</th>
+									<th>操作模块</th>
+									<th>操作时间</th>
+									<th>操作IP</th>
+									<th>操作结果</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="non_show_tr warning"><td colspan="10" class="non_show_td">无查询记录</td></tr>
+							</tbody>
+						</table>
+						<!--分页区域 start-->
+						<div class="pager-mo"></div>
+						<!--end 分页区域-->
+					</div>
+				</div>
+					<!-- content ends -->
+				</div>
+				<!--/#content.col-md-0-->
+			</div>
+			<!--/fluid-row-->
+		</div>
+		<!--/.fluid-container-->
+		<%@ include file="../common/importJS.jsp"%>
+		<script src="<c:url value='/js/json2.js'/>" type="text/javascript"></script>
+		<script src="<c:url value='/js/self.momo.list.js'/>" type="text/javascript"></script>
+		<script src="<c:url value='/js/self.operlog.list.js'/>" type="text/javascript"></script>
+	</body>
+</html>

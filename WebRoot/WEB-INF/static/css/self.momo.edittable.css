@@ -1,0 +1,21 @@
+div.list_container{margin-bottom:50px;}
+div.list_container div.panel-mo{margin-bottom: 20px;}
+div.list a{font-size:12px;}
+div.list a:hover{font-size:12px;font-weight:bold;font-size:13px;}
+div.list{width:800px;height:auto;padding:14px 0 12px 12px;}
+div.list div.list-row{height:35px;margin:-1px 0 3px 1px}
+div.list div.list-title{border-radius:2px 2px 0 0;height:40px;line-height:40px;}
+div.list div.list-title div.list-col{border-radius:2px 2px 0 0;background-color: #8AC4F3;}
+div.list div.list-row div.list-col{float:left;position:relative;border:1px solid #ddd;border-top:none;border-right:none;}
+div.list div.list-title div.list-col span{color:#fff;display:block;height:40px;width:150px;padding-left: 5px;text-align: center;line-height: 40px;font-weight: bold;}
+div.list div.list-row div.list-col input{margin-top:0;width:150px;border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;height:35px;line-height:35px;padding-left:5px;}
+div.list div.list-row div.action{width:151px;line-height:36px;height:36px;text-align:center;border:1px solid #ddd;border-top:none;}
+div.list div.list-row div.action a{text-decoration:none;color:#000;}
+div.list div.list-row div.action a:hover{text-decoration:none;color:#F7807C;}
+div.list #newsub{width:150px;float:left;padding-left:5px;margin-left:452px;border:none;margin-top:6px;margin-bottom: 6px;}
+div.list #newsub a{display:block;width:151px;background-color:#8AC4F3;margin-left:-4px;border:none;border-radius:3px;color:#fff;line-height:40px;height:40px;text-align:center;text-decoration: none;}
+div.list #newsub a:hover{display:block;width:151px;background-color:#45A1ED;margin-left:-4px;border:none;border-radius:3px;color:#fff;}
+div.list div.list-title a{text-decoration:none;color:#fff;display:block;margin-left:-4px;line-height:40px;height:40px;}
+div.list div.list-title a:hover{background-color:#45A1ED;}
+div.list input:active{border:1px solid red;border-color:#58ACFA;-webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;-webkit-box-shadow:0 0 3px #58ACFA;-moz-box-shadow: 0 0 3px #58ACFA;box-shadow:0 0 3px #58ACFA;}
+div.list div.list-row div.list-col input:focus{width:150px;height:33px;border-color:#58ACFA; border-style: solid solid solid solid;-webkit-transition:border linear .2s,-webkit-box-shadow linear .5s; -webkit-box-shadow:0 0 3px #58ACFA; -moz-box-shadow: 0 0 3px #58ACFA;box-shadow:0 0 3px #58ACFA;border-radius:4px;}

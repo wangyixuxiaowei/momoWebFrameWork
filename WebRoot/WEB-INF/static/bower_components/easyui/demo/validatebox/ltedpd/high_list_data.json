@@ -1,0 +1,14 @@
+[{
+	"id":1,
+	"text":"上行流量",
+	"desc":"upflow"
+},{
+	"id":2,
+	"text":"下行流量",
+	"desc":"downflow"
+},{
+	"id":3,
+	"text":"在线时长",
+	"desc":"onlinetime",
+	"selected":true
+}]
